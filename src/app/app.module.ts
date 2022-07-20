@@ -1,5 +1,5 @@
 import { FormsModule } from '@angular/forms';
-import { YakutskPageComponent } from './yakutsk-edit-page/yakutsk-page.component';
+import { BrbPageComponent } from './brb-page/brb-page.component';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -22,7 +22,7 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { YakutskSiteComponent } from './yakutsk-site/yakutsk-site.component';
+import { BrbSiteComponent } from './brb-site/brb-site.component';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -49,9 +49,9 @@ registerLocaleData(en);
 
 export const appRoutes: Routes = [
   { path: '', component: MainComponent },
-  { path: 'City', component: YakutskSiteComponent },
+  { path: 'City', component: BrbSiteComponent },
   { path: 'Me', component: AboutmePageComponent },
-  { path: 'Edit', component: YakutskPageComponent },
+  { path: 'Edit', component: BrbPageComponent },
   { path: 'List', component: ListUserComponent },
   { path: 'List/AddList', component: AddListUserComponent },
   { path: 'EditList/:id', component: EditListUserComponent }
@@ -62,9 +62,9 @@ export const appRoutes: Routes = [
   declarations: [
     AppComponent,
     MainComponent,
-    YakutskPageComponent,
+    BrbPageComponent,
     AboutmePageComponent,
-    YakutskSiteComponent,
+    BrbSiteComponent,
     ListUserComponent,
     AddListUserComponent,
     EditListUserComponent,

@@ -1,0 +1,37 @@
+<nz-page-header-content>
+  
+  <div nz-row nzJustify="space-around" nzAlign="middle">
+    <div nz-col nzFlex="2">
+      <img
+      nz-image
+      width="500px"
+      height="300px"
+      nzSrc="assets/img/img2.jpg"
+      alt=""
+    />
+    </div>
+    <div nz-col nzFlex=""></div>
+    <div nz-col nzFlex="1"></div>
+    <div nz-col nzFlex=""></div>
+    <div nz-col nzFlex="20">
+
+
+<form nz-form [formGroup]="myFirstReactiveForm" (submit)="onSubmit()" >
+<br>
+<input nz-input type="text" id="name" formControlName="name" id="userForm"/>
+<br/><br/>
+
+<input nz-input type="text" id="name2" formControlName="name2" id="userForm" />
+<br/><br/>
+
+<input nz-input type="text" id="name3" formControlName="name3" id="userForm" />
+<br/><br/>
+
+
+<button nz-button nzType="primary" type="submit" (ngsubmit)="onSubmit()">Save</button>
+</form>
+
+</div>
+</div>
+<br>
+</nz-page-header-content>

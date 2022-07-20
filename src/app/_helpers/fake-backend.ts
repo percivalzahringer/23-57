@@ -11,10 +11,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
 
-        // wrap in delayed observable to simulate server api call
+
         return of(null)
             .pipe(mergeMap(handleRoute))
-            .pipe(materialize()) // call materialize and dematerialize to ensure delay even if an error is thrown (https://github.com/Reactive-Extensions/RxJS/issues/648)
+            .pipe(materialize()) 
             .pipe(delay(500))
             .pipe(dematerialize());
 
@@ -25,17 +25,17 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
                 default:
-                    // pass through any requests not handled above
+     
                     return next.handle(request);
             }
         }
 
-        // route functions
+      
 
         function authenticate() {
             const { login, password } = body;
             const user = users.find(x => x.login === login && x.password === password);
-            if (!user) return error('Username or password is incorrect');
+            if (!user) return error('Введенный логин или пароль неверны');
             return ok({
                 id: user.id,
                 login: user.login,
@@ -70,7 +70,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 }
 
 export let fakeBackendProvider = {
-    // use fake backend in place of Http service for backend-less development
+
     provide: HTTP_INTERCEPTORS,
     useClass: FakeBackendInterceptor,
     multi: true

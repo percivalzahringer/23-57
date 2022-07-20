@@ -1,17 +1,17 @@
 <div class="site-page-header-ghost-wrapper">
   <nz-page-header>
-    <nz-page-header-title>Якутск</nz-page-header-title>
+    <nz-page-header-title>Барабинск</nz-page-header-title>
     <nz-page-header-extra>
       <nz-space>
+
         <a nz-button nzType="link" routerLink="" class="button-menu">Главная</a>
         <a nz-button nzType="link" routerLink="/City" class="button-menu">Население</a>
+
+        <a nz-button nzType="link" routerLink="/List" class="button-menu">Пользователи</a>
         <a nz-button nzType="link" routerLink="/Me" class="button-menu"
-          >О разработчике</a
-        >
-        <a nz-button nzType="link" routerLink="/List" class="button-menu"
-          >Список пользователей</a
-        >
-        <a nz-button class="nav-item nav-link" (click)="logout()">Выйти</a>
+          >О разработчике</a>
+
+        <a nz-button class="link" (click)="logout()">Авторизация</a>
       </nz-space>
     </nz-page-header-extra>
   </nz-page-header>

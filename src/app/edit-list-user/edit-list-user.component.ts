@@ -9,19 +9,19 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./edit-list-user.component.css'],
 })
 export class EditListUserComponent implements OnInit {
-  public myForm: FormGroup;
+  public myForm: FormGroup | undefined;
   user: User = {
     id: 0,
     name: null,
-    role: null,
-    login: null,
+    act: null,
     password: null,
+    login: null,
   };
   users: User[] = [];
   id = '';
-  roles = ['администратор', 'пользователь'];
   userAboutForm!: FormGroup;
   userIsExist = false;
+  listOfData: any;
 
   constructor(
     private router: Router,
@@ -35,14 +35,16 @@ export class EditListUserComponent implements OnInit {
       this.userIsExist = true;
     }
     this.userAboutForm = this.fb.group({
+      id: [null, [Validators.required]],
       name: [null, [Validators.required]],
-      login: [null, [Validators.required]],
-      password: [null, [Validators.required]]
+      act: [null, [Validators.required]],
+      login:[null, [Validators.required]],
+      password:[null, [Validators.required]],
     });
 
   }
   changeUser() {
-    this.users.map((n) => (n.id === +this.id ? { ...this.user } : n)); // modified
+    this.users.map((n) => (n.id === +this.id ? { ...this.user } : n));
 
     localStorage.setItem('users', JSON.stringify(this.users));
     this.router.navigate(['/List']);
@@ -58,4 +60,7 @@ export class EditListUserComponent implements OnInit {
     }
     return false;
   }
+  deleteRow(id: string): void {
+    this.listOfData = this.listOfData.filter((d: { id: string; }) => d.id !== id);
+}
 }

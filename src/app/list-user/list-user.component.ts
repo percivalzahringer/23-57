@@ -9,7 +9,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 })
 export class ListUserComponent implements OnInit {
   users?: User[] = JSON.parse(localStorage.getItem('users') as string);
-  constructor( private modal: NzModalService) {}
+  constructor(private modal: NzModalService) {}
 
   ngOnInit(): void {
     this.saveUser();
@@ -20,9 +20,9 @@ export class ListUserComponent implements OnInit {
       localStorage.setItem('users', `[]`);
     }
   }
-  showModal(id: number, name: string) {
+  showModal(id: number, name:any) {
     this.modal.confirm({
-      nzTitle: `Вы действительно хотите удалить пользователя ${name}?`,
+      nzTitle: `Удалить пользователя? ${name}`,
       nzCancelText: 'Отмена',
       nzOkDanger: true,
       nzOnOk: () => this.deleteUser(id),
@@ -30,9 +30,9 @@ export class ListUserComponent implements OnInit {
 
   }
   deleteUser(id: number) {
-    const index = this.users.findIndex(n => n.id === id);
+    const index = this.users!.findIndex(n => n.id === id);
     if (index !== -1) {
-      this.users.splice(index, 1);
+      this.users!.splice(index, 1);
     }
 
     localStorage.setItem('users', JSON.stringify(this.users))

@@ -1,38 +1,35 @@
-<h4 nz-typography>Добавить пользователя в список:</h4>
-<br />
+
 <nz-table #basicTable nzTemplateMode>
   <thead>
     <tr>
-      <th>Имя</th>
-      <th>Роль</th>
+      <th>ID</th>
+      <th>ФИО</th>
+      <th>Активность</th>
       <th>Логин</th>
       <th>Пароль</th>
-      <th>Действия</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      
       <td>
-        <input nz-input type="text" [(ngModel)]="user.name" placeholder="Введите имя"/>
+        <input nz-input type="text" [(ngModel)]="user.id" placeholder="ID"/>
       </td>
       <td>
-        <nz-select [(ngModel)]="user.role">
-          <nz-option
-            *ngFor="let role of roles"
-            [nzValue]="role"
-            [nzLabel]="role"
-          ></nz-option>
-        </nz-select>
+        <input nz-input type="text" [(ngModel)]="user.name"/>
       </td>
       <td>
-        <input nz-input type="text" [(ngModel)]="user.login"/>
+        <input nz-input type="text" [(ngModel)]="user.act" />
       </td>
       <td>
-        <input nz-input type="text" [(ngModel)]="user.password" placeholder="Введите пароль"/>
+        <input nz-input type="text" [(ngModel)]="user.login" />
+      </td>
+      <td>
+        <input nz-input type="text" [(ngModel)]="user.password" />
       </td>
       <td>
         <button nz-button type="submit" (click)="saveUser()">Добавить</button>
-        <nz-divider nzType="vertical"></nz-divider>
       </td>
     </tr>
   </tbody>

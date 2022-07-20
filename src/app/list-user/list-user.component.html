@@ -1,33 +1,32 @@
 <nz-page-header-content>
   <h4 nz-typography>
     <a nz-button nzType="default" routerLink="/List/AddList">Добавить</a>
-    пользователя в список:
   </h4>
   <nz-table #basicTable nzTemplateMode>
     <thead>
       <tr>
         <th>ID</th>
-        <th>Имя</th>
-        <th>Роль</th>
+        <th>ФИО</th>
+        <th>Активность</th>
         <th>Логин</th>
         <th>Пароль</th>
-        <th>Действия</th>
+        <th>Правка</th>
+        <th>Удалить</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of users">
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
-        <td>{{ user.role }}</td>
+        <td>{{ user.act }}</td>
         <td>{{ user.login }}</td>
         <td>{{ user.password }}</td>
         <td>
-          <a nz-button nzType="primary" routerLink="/EditList/{{ user.id }}"
-            >Редактировать</a
-          >
-          <nz-divider nzType="vertical"></nz-divider>
-          <a nz-button nzType="primary" (click)="showModal(user.id, user.name)" nzDanger>Удалить</a>
+          <button nzType="default"  routerLink="/EditList/{{user.id}}"> <span> Изменить</span></button>
         </td>
+          <td> 
+            <button nzType="default" (click)="showModal(user.id, user.name)" nzDanger> <span> Удалить</span></button>
+          </td>
       </tr>
     </tbody>
   </nz-table>

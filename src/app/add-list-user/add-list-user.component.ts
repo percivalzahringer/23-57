@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-list-user.component.css'],
 })
 export class AddListUserComponent implements OnInit {
+
   user: User = {
     id: 0,
-    name: null,
-    role: null,
-    login: null,
+    name: null!,
+    act: null!,
     password: null,
+    login: null,
   };
   users: User[] = [];
-  roles = ['администратор', 'пользователь'];
 
   constructor(private router: Router) {}
 
@@ -36,3 +36,4 @@ export class AddListUserComponent implements OnInit {
     this.router.navigate(['/List']);
   }
 }
+
